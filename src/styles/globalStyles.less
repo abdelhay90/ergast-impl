@@ -1,0 +1,70 @@
+@import "./antd-overrides";
+@import "./mixins";
+
+.logo{
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 0 24px 16px 0;
+  color: white;
+  text-align: center;
+  position: relative;
+  top: 25%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 30px;
+  font-weight: bold;
+
+}
+
+.site-layout-background {
+  background: #fff;
+}
+
+.full-width {
+  width: 100%
+}
+
+.display-flex{
+  display: flex;
+}
+
+.list{
+  &__unbulleted{
+    list-style: none;
+  }
+  &__bulleted{
+    list-style: disc;
+  }
+}
+
+.medal {
+  &.first-place{
+    svg {
+      fill: gold;
+    }
+  }
+  &.second-place{
+    svg {
+      fill: silver;
+    }
+  }
+  &.third-place{
+    svg {
+      fill: saddlebrown;
+    }
+  }
+}
+
+.world-champion{
+  animation: highlight 2000ms ease-in-out infinite;
+}
+@keyframes highlight {
+  0% {
+    background-color: gold;
+  }
+  100% {
+    background-color: white;
+  }
+}

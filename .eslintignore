@@ -1,0 +1,9 @@
+**/*.js
+node_modules
+build
+.eslintrc
+.prettierrc
+
+*.css
+*.less
+*.svg
