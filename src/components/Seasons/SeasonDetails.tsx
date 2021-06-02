@@ -1,11 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Table} from 'antd';
+import {Button, Popover, Table} from 'antd';
 import AppContext from '../../common/AppContext';
 import {getSeasonRaces} from '../../api/seasons';
 import RaceWinners from './RaceWinners';
 import moment from 'moment';
 import TopDriverStandings from "./TopDriverStandings";
 import {LocationType, PaginationOptions, Race} from "../../types";
+import RaceLocationMap from "./RaceLocationMap";
 
 const columns = [
     {
@@ -31,8 +32,22 @@ const columns = [
     {
         dataIndex: ['Circuit', 'Location'],
         title: 'Circuit Location',
-        render: (data: LocationType) =>
-            data ? `${data.locality}, ${data.country}` : 'N/A',
+        // eslint-disable-next-line react/display-name
+        render: (data: LocationType) => {
+            return data ?
+                (
+                    <Popover title="Race Location"
+                             trigger="click"
+                             content={<RaceLocationMap raceLocation={data}/>}
+                             // placement="left"
+                    >
+                        <Button type="link">
+                            {`${data.locality}, ${data.country}`}
+                        </Button>
+                    </Popover>
+                )
+                : 'N/A';
+        }
     },
 ];
 const SeasonDetails = () => {

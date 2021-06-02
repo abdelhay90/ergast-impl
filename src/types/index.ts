@@ -48,6 +48,8 @@ export interface DriverStandingResult {
 export interface LocationType {
     locality: string;
     country: string;
+    lat: number;
+    long: number;
 }
 
 export interface CircuitType {
@@ -61,4 +63,8 @@ export interface Race {
     date: string;
     time: string;
     Circuit: CircuitType
+}
+
+export interface RaceLocationMapProps {
+    raceLocation: LocationType;
 }
